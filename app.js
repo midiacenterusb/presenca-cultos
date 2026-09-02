@@ -1,7 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 // ====== CONFIGURAÇÃO — troque pelos dados do seu projeto Supabase ======
-const SUPABASE_URL = 'https://mnxuqigegourljwaylzw.supabase.co/rest/v1/';
+const SUPABASE_URL = 'https://mnxuqigegourljwaylzw.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_nXMtbLXgW3p2qGuyB1dexg_mj0dAnjl';
 // =========================================================================
 
