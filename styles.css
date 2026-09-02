@@ -1,0 +1,451 @@
+:root {
+  --paper: #F5F1E7;
+  --paper-raised: #FBF8F1;
+  --ink: #262620;
+  --ink-soft: #6B6A5E;
+  --line: #DBD3BE;
+  --line-strong: #C6BB9E;
+  --gold: #A07E2E;
+  --gold-deep: #7C6222;
+  --sage: #55744F;
+  --rust: #9B4B3A;
+
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.oculto { display: none !important; }
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+input, select {
+  font-family: var(--sans);
+}
+
+/* ---------- Login ---------- */
+
+.tela-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 340px;
+}
+
+.login-eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.login-box h1 {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 400;
+  margin: 0 0 28px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 14px;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-box label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.login-box input {
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  background: transparent;
+  padding: 8px 2px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.login-box input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--gold);
+}
+
+.login-box button {
+  margin-top: 10px;
+  background: var(--ink);
+  color: var(--paper-raised);
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.login-box button:hover { background: var(--gold-deep); }
+
+.login-erro {
+  color: var(--rust);
+  font-size: 13px;
+  min-height: 18px;
+  margin: 4px 0 0;
+}
+
+/* ---------- App shell ---------- */
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.topo {
+  padding: 28px 0 0;
+  position: relative;
+}
+
+.topo h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0 0 18px;
+}
+
+.abas {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.aba {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.aba.ativa {
+  color: var(--ink);
+  border-bottom: 2px solid var(--gold);
+}
+
+.link-sair {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.conteudo { padding-top: 24px; }
+
+/* ---------- Presença ---------- */
+
+.linha-data {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.linha-data label {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.linha-data input, .linha-data select {
+  border: 1px solid var(--line-strong);
+  background: var(--paper-raised);
+  padding: 7px 10px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.aviso {
+  background: var(--paper-raised);
+  border-left: 3px solid var(--rust);
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.lista-presenca {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.item-presenca {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 2px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.item-presenca .nome { color: var(--ink); }
+
+.marca {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  background: var(--paper-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.marca::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.item-presenca.marcado .marca {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+
+.item-presenca.marcado .marca::after {
+  background: var(--paper-raised);
+}
+
+.rodape-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.contador {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.botao-principal {
+  background: var(--ink);
+  color: var(--paper-raised);
+  border: none;
+  padding: 11px 20px;
+  font-size: 14px;
+}
+
+.botao-principal:hover { background: var(--gold-deep); }
+.botao-principal:disabled { opacity: 0.5; cursor: default; }
+
+/* ---------- Membros / Feriados ---------- */
+
+.form-inline {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-inline input {
+  flex: 1;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-raised);
+  padding: 9px 10px;
+  font-size: 14px;
+}
+
+.form-inline button {
+  background: var(--ink);
+  color: var(--paper-raised);
+  border: none;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.lista-registro {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.lista-registro li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 2px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  gap: 12px;
+}
+
+.lista-registro .meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.lista-registro .acoes {
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.lista-registro .acoes button {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+
+.lista-registro .acoes button.destaque { color: var(--rust); }
+.lista-registro li.inativo .nome { color: var(--ink-soft); text-decoration: line-through; }
+
+/* ---------- Relatórios ---------- */
+
+.sub-abas {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.sub-aba {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+}
+
+.sub-aba.ativa {
+  color: var(--ink);
+  border-bottom: 2px solid var(--gold);
+}
+
+.resumo-mensal {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 22px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.resumo-item .num {
+  font-family: var(--serif);
+  font-size: 26px;
+  display: block;
+  line-height: 1.1;
+}
+
+.resumo-item .rotulo {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.tabela-ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabela-ledger th {
+  text-align: left;
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 12px;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.tabela-ledger td {
+  padding: 10px 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabela-ledger th:not(:first-child),
+.tabela-ledger td:not(:first-child) {
+  text-align: right;
+}
+
+.grafico-comparativo {
+  margin-bottom: 24px;
+}
+
+.barra-linha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+.barra-linha .rotulo-mes {
+  width: 64px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+.barra-linha .trilha {
+  flex: 1;
+  background: var(--line);
+  height: 8px;
+  position: relative;
+}
+
+.barra-linha .preenchimento {
+  background: var(--gold);
+  height: 100%;
+}
+
+.barra-linha .valor {
+  width: 48px;
+  font-size: 12px;
+  text-align: right;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+.tendencia-alta { color: var(--sage); }
+.tendencia-baixa { color: var(--rust); }
+
+@media (max-width: 480px) {
+  .app { padding: 0 14px 60px; }
+  .abas { overflow-x: auto; }
+  .resumo-mensal { gap: 18px; flex-wrap: wrap; }
+}

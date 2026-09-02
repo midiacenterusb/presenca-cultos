@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Registro — Presença nos Cultos</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Tela de login -->
+  <section id="tela-login" class="tela tela-login">
+    <div class="login-box">
+      <p class="login-eyebrow">Culto do escritório</p>
+      <h1>Registro</h1>
+      <form id="form-login">
+        <label>
+          <span>E-mail</span>
+          <input type="email" id="login-email" required autocomplete="username">
+        </label>
+        <label>
+          <span>Senha</span>
+          <input type="password" id="login-senha" required autocomplete="current-password">
+        </label>
+        <button type="submit">Entrar</button>
+        <p class="login-erro" id="login-erro"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- App principal -->
+  <div id="app" class="app oculto">
+    <header class="topo">
+      <h1>Registro</h1>
+      <nav class="abas">
+        <button class="aba ativa" data-view="presenca">Presença</button>
+        <button class="aba" data-view="membros">Membros</button>
+        <button class="aba" data-view="feriados">Feriados</button>
+        <button class="aba" data-view="relatorios">Relatórios</button>
+      </nav>
+      <button id="btn-sair" class="link-sair">Sair</button>
+    </header>
+
+    <main class="conteudo">
+
+      <!-- VIEW: Presença -->
+      <section id="view-presenca" class="view">
+        <div class="linha-data">
+          <label for="data-culto">Data</label>
+          <input type="date" id="data-culto">
+        </div>
+        <div id="aviso-sem-culto" class="aviso oculto"></div>
+        <ul id="lista-presenca" class="lista-presenca"></ul>
+        <div class="rodape-view">
+          <span id="contador-presenca" class="contador"></span>
+          <button id="btn-salvar-presenca" class="botao-principal">Salvar registro</button>
+        </div>
+      </section>
+
+      <!-- VIEW: Membros -->
+      <section id="view-membros" class="view oculto">
+        <form id="form-membro" class="form-inline">
+          <input type="text" id="novo-membro-nome" placeholder="Nome do membro" required>
+          <button type="submit">Adicionar</button>
+        </form>
+        <ul id="lista-membros" class="lista-registro"></ul>
+      </section>
+
+      <!-- VIEW: Feriados -->
+      <section id="view-feriados" class="view oculto">
+        <form id="form-feriado" class="form-inline">
+          <input type="date" id="novo-feriado-data" required>
+          <input type="text" id="novo-feriado-motivo" placeholder="Motivo (opcional)">
+          <button type="submit">Adicionar</button>
+        </form>
+        <ul id="lista-feriados" class="lista-registro"></ul>
+      </section>
+
+      <!-- VIEW: Relatórios -->
+      <section id="view-relatorios" class="view oculto">
+        <div class="sub-abas">
+          <button class="sub-aba ativa" data-subview="mensal">Mensal</button>
+          <button class="sub-aba" data-subview="comparativo">Comparativo</button>
+        </div>
+
+        <div id="sub-mensal" class="sub-view">
+          <div class="linha-data">
+            <label for="mes-relatorio">Mês</label>
+            <input type="month" id="mes-relatorio">
+          </div>
+          <div id="resumo-mensal" class="resumo-mensal"></div>
+          <table class="tabela-ledger" id="tabela-mensal">
+            <thead>
+              <tr><th>Membro</th><th>Presenças</th><th>%</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div id="sub-comparativo" class="sub-view oculto">
+          <div class="linha-data">
+            <label for="qtd-meses">Últimos</label>
+            <select id="qtd-meses">
+              <option value="3">3 meses</option>
+              <option value="6" selected>6 meses</option>
+              <option value="12">12 meses</option>
+            </select>
+          </div>
+          <div id="grafico-comparativo" class="grafico-comparativo"></div>
+          <table class="tabela-ledger" id="tabela-comparativo"></table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
